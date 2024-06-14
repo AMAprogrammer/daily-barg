@@ -2,24 +2,28 @@ from selenium import webdriver
 from selenium.webdriver.common import keys
 from selenium.webdriver.common.by import By
 from time import sleep
+
+from local_config import phone_number, password
+
+
 driver = webdriver.Firefox()
 
 driver.get("https://taaghche.com/login")
 
 sleep(3)
 
-phone_number = driver.find_element(by=By.XPATH, value="/html/body/div[1]/main/div/div[2]/form/div[1]/input")
-phone_number.clear()
-phone_number.send_keys("09927063067")
+phone_number_field = driver.find_element(by=By.XPATH, value="/html/body/div[1]/main/div/div[2]/form/div[1]/input")
+phone_number_field.clear()
+phone_number_field.send_keys(phone_number)
 
 confirm = driver.find_element(by=By.XPATH, value="/html/body/div[1]/main/div/div[2]/form/div[2]")
 confirm.click()
 
 sleep(3)
 
-password = driver.find_element(by=By.XPATH, value="/html/body/div[1]/main/div/div[2]/form/div[1]/input")
-password.clear()
-password.send_keys("13820221@mirhossein@lizadeh")
+password_field = driver.find_element(by=By.XPATH, value="/html/body/div[1]/main/div/div[2]/form/div[1]/input")
+password_field.clear()
+password_field.send_keys(password)
 
 continuee = driver.find_element(by=By.XPATH, value="/html/body/div[1]/main/div/div[2]/form/div[2]/button/div")
 continuee.click()
